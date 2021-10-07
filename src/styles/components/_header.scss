@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.9375rem;
+  @include mq(tablet) {
+    padding-top: 9rem;
+  }
+
+  &__logo {
+    color: var(--clr-logo);
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+
+    p {
+      text-transform: uppercase;
+      color: var(--clr-secondary-text);
+      letter-spacing: 2.5px;
+      font-weight: var(--fw-bold);
+    }
+
+    svg {
+      path {
+        fill: var(--clr-secondary-text);
+      }
+    }
+
+    &:hover {
+      p {
+        color: var(--clr-logo);
+      }
+
+      svg {
+        path {
+          fill: var(--clr-logo);
+        }
+      }
+    }
+  }
+}

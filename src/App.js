@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchBar from './components/SearchBar';
+import './styles/main.css';
+import {useState, useEffect} from 'react';
+import Header from './components/Header';
+import SearchResult from './components/SearchResult';
+
 
 function App() {
+  const [user, setUser] = useState('octocat');
+  const [data, setData] = useState({});
+  const [lightMode, setLightMode] = useState(true);
+  const [error, setError] = useState(false);
+
+
+  useEffect(() => {
+      fetch(`https://api.github.com/users/${user}`)
+      .then((res) => res.json())
+      .then((data) => {
+         if(data.message) {
+          setError(true)
+         } else {
+           setData(data)
+           setError(false)
+         }
+      })   
+  }, [user])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header lightMode={lightMode} setLightMode={setLightMode}/>
+      <SearchBar setUser={setUser} error={error} />
+      <SearchResult data={data} />
     </div>
   );
 }

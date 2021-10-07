@@ -1,0 +1,20 @@
+.btn {
+    cursor: pointer;
+    border: none;
+    padding: 12.5px 16px;
+    border-radius: 10px;
+    transition: all 200ms ease-in;
+    font-size: 0.875rem;
+    @include mq(tablet) {
+        font-size: 1rem;
+    }
+
+    &--primary {
+        background: var(--clr-light-blue);
+        color: #ffffff;
+
+        &:hover {
+            background: #60ABFF;
+        }
+    }
+}

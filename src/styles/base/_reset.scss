@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 300ms ease-in;
+}
+
+
+body, button, input {
+    font-family: 'Space Mono', sans-serif;
+    font-size: 0.9375rem;
+    background: var(--clr-screen-bg);
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    width: 87%;
+    margin: 0 auto;
+    max-width: 730px;
+}
